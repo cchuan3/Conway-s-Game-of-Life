@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyd4262pogrq"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_et1dp"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(39, 36)
+script = ExtResource("1_et1dp")
+column_size = 5
+row_size = 5
+
+[node name="Grid" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
