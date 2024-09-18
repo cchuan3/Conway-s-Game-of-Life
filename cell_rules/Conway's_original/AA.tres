@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomRule" load_steps=2 format=3 uid="uid://cp681shk5hvsd"]
+
+[ext_resource type="Script" path="res://custom_resources/custom_rule.gd" id="1_84ob1"]
+
+[resource]
+script = ExtResource("1_84ob1")
+name = "A->A (Basic)"
+basic_rule = true
+rule_result = 0

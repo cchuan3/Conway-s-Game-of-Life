@@ -1,13 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://boyd4262pogrq"]
+[gd_scene load_steps=4 format=3 uid="uid://boyd4262pogrq"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_et1dp"]
+[ext_resource type="Script" path="res://scenes/rule_handler.gd" id="2_vgtta"]
+[ext_resource type="Resource" uid="uid://bsonljue5mu4o" path="res://cell_rules/Conway's_original/Conway's_original.tres" id="3_0v0fu"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("rule_handler")]
 position = Vector2(39, 36)
 script = ExtResource("1_et1dp")
-column_size = 20
-row_size = 20
+column_size = 10
+row_size = 10
+rule_handler = NodePath("RuleHandler")
 
 [node name="Grid" type="HBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RuleHandler" type="Node" parent="."]
+script = ExtResource("2_vgtta")
+rules_container = ExtResource("3_0v0fu")
