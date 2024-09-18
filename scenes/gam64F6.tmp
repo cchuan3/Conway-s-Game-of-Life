@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_et1dp"]
 [ext_resource type="Script" path="res://scenes/rule_handler.gd" id="2_vgtta"]
-[ext_resource type="Resource" uid="uid://c57xq1nawdfdk" path="res://cell_rules/high_life.tres" id="3_xb4jx"]
+[ext_resource type="Resource" uid="uid://bsonljue5mu4o" path="res://cell_rules/Conway's_original.tres" id="3_0v0fu"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rule_handler")]
 position = Vector2(39, 36)
@@ -17,4 +17,4 @@ offset_bottom = 40.0
 
 [node name="RuleHandler" type="Node" parent="."]
 script = ExtResource("2_vgtta")
-rules_container = ExtResource("3_xb4jx")
+rules_container = ExtResource("3_0v0fu")

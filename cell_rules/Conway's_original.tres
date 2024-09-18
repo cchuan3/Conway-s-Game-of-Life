@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="RulesContainer" load_steps=4 format=3 uid="uid://bsonljue5mu4o"]
 
 [ext_resource type="Script" path="res://custom_resources/rules_container.gd" id="1_8864l"]
-[ext_resource type="Resource" uid="uid://bbvhkuduuscro" path="res://cell_rules/Conway's_original/AD.tres" id="1_qu4kt"]
-[ext_resource type="Resource" uid="uid://dam6fciq0adfg" path="res://cell_rules/Conway's_original/DA.tres" id="4_nypvf"]
+[ext_resource type="Resource" uid="uid://bbvhkuduuscro" path="res://cell_rules/AD.tres" id="1_qu4kt"]
+[ext_resource type="Resource" uid="uid://dam6fciq0adfg" path="res://cell_rules/DA.tres" id="4_nypvf"]
 
 [resource]
 script = ExtResource("1_8864l")

@@ -1,8 +1,8 @@
 class_name RulesContainer
 extends Resource
 
-const RULE_STAY_ALIVE = preload("res://cell_rules/Conway's_original/AA.tres")
-const RULE_STAY_DEAD = preload("res://cell_rules/Conway's_original/DD.tres")
+const RULE_STAY_ALIVE = preload("res://cell_rules/AA.tres")
+const RULE_STAY_DEAD = preload("res://cell_rules/DD.tres")
 
 @export var rules_matrix := {
 	Cell.CellState.ALIVE: {Cell.CellState.ALIVE: [], Cell.CellState.DEAD: []},
