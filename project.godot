@@ -14,6 +14,15 @@ config/name="Conway's Game of Life"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
+[gui]
+
+theme/custom="res://main_theme.tres"
+
 [input]
 
 L_Mouse={

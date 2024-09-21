@@ -2,7 +2,7 @@ extends Node2D
 
 const CELL_SCENE := preload("res://scenes/cell.tscn")
 
-@onready var grid: HBoxContainer = $Grid
+@onready var grid_container: GridContainer = %GridContainer
 
 @export_range(1,100) var column_size: int
 @export_range(1,100) var row_size: int
@@ -13,19 +13,25 @@ var num_alive := 0
 var turn_number := 0
 
 func _ready() -> void:
-	if not grid.is_node_ready():
-		await grid.ready
-	# Setup grid based on row_size and column_size
-	for i in range(row_size):
-		var new_column = VBoxContainer.new()
-		new_column.name = "Column%s" % i
-		new_column.add_theme_constant_override("Separation", 40)
-		grid.add_child(new_column)
-		for j in range(column_size):
-			var new_cell = CELL_SCENE.instantiate()
-			new_column.add_child(new_cell)
-			cells.append(new_cell)
-	# Setup cell.neighbors
+	_setup_grid()
+	_setup_cell_neighbors()
+	# Give cells to rule_handler
+	rule_handler.cells = cells
+	rule_handler.setup()
+	_reset()
+
+# Setup grid based on row_size and column_size
+func _setup_grid() -> void:
+	grid_container.columns = column_size
+	for i in range(row_size * column_size):
+		var new_cell = CELL_SCENE.instantiate()
+		grid_container.add_child(new_cell)
+		cells.append(new_cell)
+	#grid_container.add_theme_constant_override("h_separation", 40)
+	#grid_container.add_theme_constant_override("v_separation", 40)
+
+# Setup cell.neighbors (adjacent cells)
+func _setup_cell_neighbors() -> void:
 	var x := 0
 	var y := 0
 	for cell in cells:
@@ -40,12 +46,6 @@ func _ready() -> void:
 		if y % column_size == 0:
 			y = 0
 			x += 1
-	# Give cells to rule_handler
-	if not rule_handler.is_node_ready():
-		await rule_handler.ready
-	rule_handler.cells = cells
-	rule_handler.setup()
-	_reset()
 
 # Reset game state
 func _reset() -> void:
@@ -62,7 +62,23 @@ func process_turn() -> void:
 		print("All Dead Cells!")
 		_reset()
 
+# Input
+var process_active := false
+var process_delay := 0.25
+var timer := 0.0
+
 # Input to start processing turn
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Turn"):
 		process_turn()
+		process_active = true
+		timer = 0.0
+	elif event.is_action_released("Turn"):
+		process_active = false
+
+func _process(delta: float) -> void:
+	if process_active:
+		timer += delta
+		if timer >= process_delay:
+			timer = 0.0
+			process_turn()

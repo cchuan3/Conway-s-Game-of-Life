@@ -1,15 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://boyd4262pogrq"]
+[gd_scene load_steps=5 format=3 uid="uid://boyd4262pogrq"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_et1dp"]
 [ext_resource type="Texture2D" uid="uid://dewf7ffuaxshx" path="res://sprites/background_01.png" id="2_7nh5l"]
 [ext_resource type="Script" path="res://scenes/rule_handler.gd" id="2_vgtta"]
 [ext_resource type="Resource" uid="uid://bsonljue5mu4o" path="res://cell_rules/Conway's_original.tres" id="3_0v0fu"]
-[ext_resource type="PackedScene" uid="uid://v1o5kfedksoe" path="res://scenes/UI/rule_UI.tscn" id="5_gvg86"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("rule_handler")]
 script = ExtResource("1_et1dp")
-column_size = 10
-row_size = 10
+column_size = 15
+row_size = 15
 rule_handler = NodePath("RuleHandler")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -26,23 +25,19 @@ rules_container = ExtResource("3_0v0fu")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 500.0
+offset_left = -245.0
+offset_right = 245.0
+offset_bottom = 490.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Grid" type="HBoxContainer" parent="CanvasLayer/MarginContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-columns = 10
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-offset_right = 324.0
-offset_bottom = 324.0
-
-[node name="RuleUI" parent="CanvasLayer/CenterContainer" instance=ExtResource("5_gvg86")]
-layout_mode = 2
+alignment = 1

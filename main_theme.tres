@@ -1,0 +1,108 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bpqgamjlhvjpj"]
+
+[ext_resource type="StyleBox" uid="uid://ckod6cntasqac" path="res://scenes/stylebox_cell_dead.tres" id="1_twtk2"]
+[ext_resource type="StyleBox" uid="uid://5s4ifdugutx2" path="res://scenes/UI/stylebox_ui_panel.tres" id="2_ndngw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3pyy"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.396806, 0.671149, 0.495743, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87icb"]
+bg_color = Color(0.328072, 0.577095, 0.419069, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j313h"]
+bg_color = Color(0.396806, 0.671149, 0.495743, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.270026, 0.499443, 0.504067, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1r03s"]
+bg_color = Color(0.44436, 0.728743, 0.545684, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lyhj"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.396806, 0.671149, 0.495743, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge71h"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.396806, 0.671149, 0.495743, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psuwm"]
+bg_color = Color(0.328072, 0.577095, 0.419069, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(0.429047, 0.706455, 0.711686, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[resource]
+Label/font_sizes/font_size = 10
+Panel/styles/panel = ExtResource("1_twtk2")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o3pyy")
+RichTextLabel/font_sizes/normal_font_size = 8
+TabContainer/styles/panel = ExtResource("2_ndngw")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_87icb")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_j313h")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_1r03s")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_8lyhj")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_ge71h")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_psuwm")

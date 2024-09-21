@@ -1,0 +1,31 @@
+- visuals
+	* center grid 
+	- add rule visual
+		- grid of interactions, by cell type (x: number of cells, y: neighbor cell type, tab: current cell type)
+	- background
+	- effects?
+
+- add more cell states
+	- resources (construction, mana, workers, etc)
+	- rules to get to states
+	- get stuff when cells turn into or change from states
+
+- in-game rule changes
+	- add more rules and allow player to change rules
+
+- randomize starting cells?
+	- limit player cells/turn
+	- interesting puzzle playstyle?
+
+- randomize turns per action?
+	- roll a die
+	- can't set up for every possible result?
+
+- age & exhaustion
+	- cells exhaust if alive over certain # of turns
+	- exhausted cells count as dead, cannot be turned alive for certain # of turns
+
+- GOAL
+	- survive # of turns?
+	- payment due after # of turns?
+	- rpg-like, monsters etc to beat?

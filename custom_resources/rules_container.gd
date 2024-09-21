@@ -35,7 +35,7 @@ func get_rule_result(cell: Cell) -> Cell.CellState:
 	for neighbor: Cell in cell.neighbors:
 		neighbors_state[neighbor.state] += 1
 	# Find custom rule result
-	for dependency_state: Cell.CellState in range(Cell.CellState.LENGTH):
+	for dependency_state: Cell.CellState in range(Cell.CellState.LENGTH) as Array[Cell.CellState]:
 		var neighbor_num: int = neighbors_state[dependency_state]
 		var rule_to_check: CustomRule = rules_matrix[cell.state][dependency_state as Cell.CellState][neighbor_num]
 		if not rule_to_check.basic_rule:
