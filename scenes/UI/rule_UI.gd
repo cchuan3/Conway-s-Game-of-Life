@@ -13,7 +13,7 @@ func _ready() -> void:
 		new_rule_grid.main_state = state
 		add_child(new_rule_grid)
 		tabs[state] = new_rule_grid
-		state = state + 1 as Cell.CellState
+		state = Cell.get_next_cell_state(state, false)
 	rules_container = preload("res://cell_rules/Conway's_original.tres")
 
 # Send new/changed rules to rule_grid_ui tabs
@@ -22,4 +22,4 @@ func _set_rules_container(value: RulesContainer) -> void:
 	var state := Cell.CellState.ALIVE
 	while state != Cell.CellState.LENGTH:
 		tabs[state].rule_dict = rules_container.rules_matrix[state]
-		state = state + 1 as Cell.CellState
+		state = Cell.get_next_cell_state(state, false)

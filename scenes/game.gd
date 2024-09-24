@@ -11,10 +11,12 @@ const CELL_SCENE := preload("res://scenes/cell.tscn")
 var cells: Array[Cell]
 var num_alive := 0
 var turn_number := 0
+var selected_cell: Cell
 
 func _ready() -> void:
 	_setup_grid()
 	_setup_cell_neighbors()
+	Events.cell_selected.connect(_on_cell_selected)
 	# Give cells to rule_handler
 	rule_handler.cells = cells
 	rule_handler.setup()
@@ -82,3 +84,8 @@ func _process(delta: float) -> void:
 		if timer >= process_delay:
 			timer = 0.0
 			process_turn()
+
+func _on_cell_selected(cell: Cell) -> void:
+	if selected_cell:
+		selected_cell.selected = false
+	selected_cell = cell

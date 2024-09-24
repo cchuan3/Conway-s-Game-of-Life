@@ -27,7 +27,7 @@ func _ready() -> void:
 		for _i in range(9):
 			panel_dict[state].append(panel_children[i])
 			i += 1
-		state = state + 1 as Cell.CellState
+		state = Cell.get_next_cell_state(state, false)
 	# Setup stylebox dict
 	stylebox_dict[Cell.CellState.ALIVE] = STYLEBOX_CELL_ALIVE
 	stylebox_dict[Cell.CellState.DEAD] = STYLEBOX_CELL_DEAD
@@ -52,7 +52,7 @@ func _set_rule_dict(value: Dictionary) -> void:
 			else:
 				new_state = new_state_rule.rule_result
 			panel.add_theme_stylebox_override("panel", stylebox_dict[new_state])
-		state = state + 1 as Cell.CellState
+		state = Cell.get_next_cell_state(state, false)
 
 # Change name to match main state (for tab container)
 func _set_main_state(value: Cell.CellState) -> void:
