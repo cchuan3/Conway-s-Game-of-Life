@@ -3,10 +3,12 @@ extends Node2D
 const CELL_SCENE := preload("res://scenes/cell.tscn")
 
 @onready var grid_container: GridContainer = %GridContainer
+@onready var rule_ui: RuleUI = %RuleUI
+@onready var rule_handler: RuleHandler = %RuleHandler
 
 @export_range(1,100) var column_size: int
 @export_range(1,100) var row_size: int
-@export var rule_handler: RuleHandler
+@export var ruleset: RulesContainer
 
 var cells: Array[Cell]
 var num_alive := 0
@@ -17,9 +19,13 @@ func _ready() -> void:
 	_setup_grid()
 	_setup_cell_neighbors()
 	Events.cell_selected.connect(_on_cell_selected)
+	ruleset.setup()
+	rule_handler.rules_container = ruleset
+	rule_ui.rules_container = ruleset
 	# Give cells to rule_handler
 	rule_handler.cells = cells
 	rule_handler.setup()
+	# Set starting variables
 	_reset()
 
 # Setup grid based on row_size and column_size

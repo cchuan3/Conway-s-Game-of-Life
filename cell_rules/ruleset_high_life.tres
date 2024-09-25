@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RulesContainer" load_steps=2 format=3 uid="uid://c57xq1nawdfdk"]
+
+[ext_resource type="Script" path="res://custom_resources/rules_container.gd" id="1_uuvcn"]
+
+[resource]
+script = ExtResource("1_uuvcn")
+rules_notation = Array[String](["DAA36", "AAD0145678"])

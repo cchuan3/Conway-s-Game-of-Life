@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RulesContainer" load_steps=2 format=3 uid="uid://bsonljue5mu4o"]
+
+[ext_resource type="Script" path="res://custom_resources/rules_container.gd" id="1_m0wjb"]
+
+[resource]
+script = ExtResource("1_m0wjb")
+rules_notation = Array[String](["DAA3", "AAD0145678"])
+rules_matrix = {
+0: {
+0: [],
+1: []
+},
+1: {
+0: [],
+1: []
+}
+}

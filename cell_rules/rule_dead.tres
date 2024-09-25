@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_38i03")
-name = "A->D"
+name = "Dead"
 basic_rule = false
 rule_result = 1

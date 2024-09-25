@@ -57,3 +57,10 @@ static func get_next_cell_state(value: CellState, loop: bool = true) -> CellStat
 	if loop and value == CellState.LENGTH:
 		value = 0 as CellState
 	return value
+
+# Static func to get an array of all cell states (Exclude LENGTH)
+static func get_cell_state_array() -> Array[CellState]:
+	var output: Array[CellState] = []
+	for i in range(CellState.LENGTH):
+		output.append(i as CellState)
+	return output

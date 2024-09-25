@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomRule" load_steps=2 format=3 uid="uid://cpwqnow54d5bu"]
 
-[ext_resource type="Script" path="res://custom_resources/custom_rule.gd" id="1_2wuie"]
+[ext_resource type="Script" path="res://custom_resources/custom_rule.gd" id="1_vadiq"]
 
 [resource]
-script = ExtResource("1_2wuie")
-name = "D->D (Basic)"
+script = ExtResource("1_vadiq")
+name = "Dead (Basic)"
 basic_rule = true
 rule_result = 1

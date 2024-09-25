@@ -21,13 +21,11 @@ func _ready() -> void:
 	# Add panels to match rule_dict
 	var i = 0
 	var panel_children = find_children("*", "Panel") as Array[Panel]
-	var state := Cell.CellState.ALIVE
-	while state != Cell.CellState.LENGTH:
+	for state: Cell.CellState in Cell.get_cell_state_array():
 		panel_dict[state] = []
 		for _i in range(9):
 			panel_dict[state].append(panel_children[i])
 			i += 1
-		state = Cell.get_next_cell_state(state, false)
 	# Setup stylebox dict
 	stylebox_dict[Cell.CellState.ALIVE] = STYLEBOX_CELL_ALIVE
 	stylebox_dict[Cell.CellState.DEAD] = STYLEBOX_CELL_DEAD
@@ -41,8 +39,7 @@ func _set_rule_dict(value: Dictionary) -> void:
 	# TODO: Error check
 	rule_dict = value
 	# Change panel visuals
-	var state = Cell.CellState.ALIVE
-	while state != Cell.CellState.LENGTH:
+	for state: Cell.CellState in Cell.get_cell_state_array():
 		for i in range(9):
 			var panel: Panel = panel_dict[state][i]
 			var new_state_rule = rule_dict[state][i] as CustomRule
@@ -52,7 +49,6 @@ func _set_rule_dict(value: Dictionary) -> void:
 			else:
 				new_state = new_state_rule.rule_result
 			panel.add_theme_stylebox_override("panel", stylebox_dict[new_state])
-		state = Cell.get_next_cell_state(state, false)
 
 # Change name to match main state (for tab container)
 func _set_main_state(value: Cell.CellState) -> void:

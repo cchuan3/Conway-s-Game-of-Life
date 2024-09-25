@@ -6,19 +6,19 @@
 [ext_resource type="Resource" uid="uid://bsonljue5mu4o" path="res://cell_rules/ruleset_Conway's_original.tres" id="3_0v0fu"]
 [ext_resource type="PackedScene" uid="uid://v1o5kfedksoe" path="res://scenes/UI/rule_UI.tscn" id="5_gvg86"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("rule_handler")]
 script = ExtResource("1_et1dp")
 column_size = 10
 row_size = 10
-ruleset = ExtResource("3_0v0fu")
+rule_handler = NodePath("RuleHandler")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_7nh5l")
 centered = false
 
 [node name="RuleHandler" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("2_vgtta")
+rules_container = ExtResource("3_0v0fu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -45,5 +45,4 @@ offset_right = 324.0
 offset_bottom = 324.0
 
 [node name="RuleUI" parent="CanvasLayer/CenterContainer" instance=ExtResource("5_gvg86")]
-unique_name_in_owner = true
 layout_mode = 2

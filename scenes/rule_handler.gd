@@ -1,14 +1,13 @@
 class_name RuleHandler
 extends Node
 
-@export var rules_container: RulesContainer
+var rules_container: RulesContainer
 
 var cells: Array[Cell]
 var num_cells: int
 
 func setup() -> void:
 	num_cells = cells.size()
-	rules_container.setup()
 
 # Process every cell to the next state, return number of non-dead cells
 func process_turn() -> int:

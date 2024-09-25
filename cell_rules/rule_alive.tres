@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomRule" load_steps=2 format=3 uid="uid://dam6fciq0adfg"]
 
-[ext_resource type="Script" path="res://custom_resources/custom_rule.gd" id="1_7dqli"]
+[ext_resource type="Script" path="res://custom_resources/custom_rule.gd" id="1_gndxv"]
 
 [resource]
-script = ExtResource("1_7dqli")
-name = "D->A"
+script = ExtResource("1_gndxv")
+name = "Alive"
 basic_rule = false
 rule_result = 0
