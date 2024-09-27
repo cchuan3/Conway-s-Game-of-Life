@@ -37,7 +37,7 @@ func _fill_basic_rules(state: Cell.CellState, rule: CustomRule) -> void:
 	for i in range(9):
 		for dependency_state in range(Cell.CellState.LENGTH):
 			if not rules_matrix[state][dependency_state][i]:
-				rules_matrix[state][dependency_state][i] = rule
+				rules_matrix[state][dependency_state][i] = rule.duplicate()
 				#print("%s:%s" % [dependency_state, i])
 
 # Conversion variables
@@ -67,10 +67,7 @@ func rules_notation_to_rules_matrix() -> void:
 		for i_str in rule_array:
 			var i = str_to_var(i_str)
 			var temp = rules_matrix[state_base][state_dependency]
-			temp[i] = CUSTOM_RULES[state_result]
-	# Fill other rules
-	_fill_basic_rules(Cell.CellState.ALIVE, BASIC_RULES[Cell.CellState.ALIVE])
-	_fill_basic_rules(Cell.CellState.DEAD, BASIC_RULES[Cell.CellState.DEAD])
+			temp[i] = CUSTOM_RULES[state_result].duplicate()
 
 # Based on the cell's neighbors, find the first rule that applies
 # ORDER:
@@ -79,16 +76,20 @@ func rules_notation_to_rules_matrix() -> void:
 # 	b. Based on Dead neighbors
 # 2. Stay the same state
 # TODO: Allow different orders specified by ruleset
-func get_rule_result(cell: Cell) -> Cell.CellState:
+func get_rule(cell: Cell) -> CustomRule:
 	# Get neighbor status
 	var neighbors_state := {Cell.CellState.ALIVE: 0, Cell.CellState.DEAD: 0}
 	for neighbor: Cell in cell.neighbors:
 		neighbors_state[neighbor.state] += 1
 	# Find custom rule result
+	var first_basic_rule: CustomRule
 	for dependency_state: Cell.CellState in range(Cell.CellState.LENGTH) as Array[Cell.CellState]:
 		var neighbor_num: int = neighbors_state[dependency_state]
 		var rule_to_check: CustomRule = rules_matrix[cell.state][dependency_state as Cell.CellState][neighbor_num]
 		if not rule_to_check.basic_rule:
-			return rule_to_check.rule_result
+			return rule_to_check
+		elif first_basic_rule == null:
+			first_basic_rule = rule_to_check
+			#print("Basic %s : %s" % [rule_to_check.rule_result, neighbor_num])
 	# Fall back to basic rule result
-	return BASIC_RULES[cell.state].rule_result
+	return first_basic_rule

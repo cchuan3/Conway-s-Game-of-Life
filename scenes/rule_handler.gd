@@ -14,7 +14,7 @@ func process_turn() -> int:
 	var num_alive = num_cells
 	var cell_results: Array[Cell.CellState] = []
 	for cell: Cell in cells:
-		cell_results.append(rules_container.get_rule_result(cell))
+		cell_results.append(rules_container.get_rule(cell).rule_result)
 	for i in range(num_cells):
 		cells[i].state = cell_results[i]
 		if cells[i].state == Cell.CellState.DEAD:

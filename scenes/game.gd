@@ -19,6 +19,7 @@ func _ready() -> void:
 	_setup_grid()
 	_setup_cell_neighbors()
 	Events.cell_selected.connect(_on_cell_selected)
+	Events.cell_deselected.connect(_on_cell_deselected)
 	ruleset.setup()
 	rule_handler.rules_container = ruleset
 	rule_ui.rules_container = ruleset
@@ -95,3 +96,7 @@ func _on_cell_selected(cell: Cell) -> void:
 	if selected_cell:
 		selected_cell.selected = false
 	selected_cell = cell
+
+func _on_cell_deselected(cell: Cell) -> void:
+	if selected_cell == cell:
+		selected_cell = null

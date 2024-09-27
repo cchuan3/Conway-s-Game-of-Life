@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwcw5fjfwwwun"]
+
+[ext_resource type="Script" path="res://scenes/UI/rule_grid_element_UI.gd" id="1_yc7hj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sk1h2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.638736, 0.586089, 0.157996, 1)
+
+[node name="RuleGridElementUI" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yc7hj")
+
+[node name="Highlighted" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sk1h2")

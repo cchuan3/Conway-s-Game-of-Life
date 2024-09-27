@@ -5,13 +5,3 @@
 [resource]
 script = ExtResource("1_m0wjb")
 rules_notation = Array[String](["DAA3", "AAD0145678"])
-rules_matrix = {
-0: {
-0: [],
-1: []
-},
-1: {
-0: [],
-1: []
-}
-}

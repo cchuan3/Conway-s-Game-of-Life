@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://da1ekai7fjkc0"]
+[gd_scene load_steps=3 format=3 uid="uid://da1ekai7fjkc0"]
 
 [ext_resource type="Script" path="res://scenes/UI/rule_grid_UI.gd" id="1_jj77y"]
+[ext_resource type="PackedScene" uid="uid://bwcw5fjfwwwun" path="res://scenes/UI/rule_grid_element_UI.tscn" id="2_dg5um"]
 
 [node name="Alive" type="GridContainer"]
 offset_right = 50.0
@@ -132,31 +133,31 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="RuleGridElementUI" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="RuleGridElementUI2" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel3" type="Panel" parent="."]
+[node name="RuleGridElementUI3" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel4" type="Panel" parent="."]
+[node name="RuleGridElementUI4" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel5" type="Panel" parent="."]
+[node name="RuleGridElementUI5" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel6" type="Panel" parent="."]
+[node name="RuleGridElementUI6" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel7" type="Panel" parent="."]
+[node name="RuleGridElementUI7" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel8" type="Panel" parent="."]
+[node name="RuleGridElementUI8" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel9" type="Panel" parent="."]
+[node name="RuleGridElementUI9" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
 [node name="PanelContainer11" type="PanelContainer" parent="."]
@@ -170,29 +171,29 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Panel10" type="Panel" parent="."]
+[node name="RuleGridElementUI10" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel11" type="Panel" parent="."]
+[node name="RuleGridElementUI11" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel12" type="Panel" parent="."]
+[node name="RuleGridElementUI12" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel13" type="Panel" parent="."]
+[node name="RuleGridElementUI13" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel14" type="Panel" parent="."]
+[node name="RuleGridElementUI14" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel15" type="Panel" parent="."]
+[node name="RuleGridElementUI15" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel16" type="Panel" parent="."]
+[node name="RuleGridElementUI16" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel17" type="Panel" parent="."]
+[node name="RuleGridElementUI17" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2
 
-[node name="Panel18" type="Panel" parent="."]
+[node name="RuleGridElementUI18" parent="." instance=ExtResource("2_dg5um")]
 layout_mode = 2

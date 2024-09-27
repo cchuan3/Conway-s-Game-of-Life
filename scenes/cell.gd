@@ -1,8 +1,10 @@
 class_name Cell
 extends Control
 
-const STYLEBOX_CELL_ALIVE = preload("res://scenes/stylebox_cell_alive.tres")
-const STYLEBOX_CELL_DEAD = preload("res://scenes/stylebox_cell_dead.tres")
+const STYLEBOX_DICT := {
+	Cell.CellState.ALIVE: preload("res://scenes/stylebox_cell_alive.tres"),
+	Cell.CellState.DEAD: preload("res://scenes/stylebox_cell_dead.tres")
+}
 
 enum CellState {ALIVE, DEAD, LENGTH}
 
@@ -21,11 +23,18 @@ func _ready() -> void:
 # Change color on state change
 func _set_state(value: CellState) -> void:
 	state = value
-	match state:
-		CellState.ALIVE:
-			panel.add_theme_stylebox_override("panel", STYLEBOX_CELL_ALIVE)
-		CellState.DEAD:
-			panel.add_theme_stylebox_override("panel", STYLEBOX_CELL_DEAD)
+	panel.add_theme_stylebox_override("panel", STYLEBOX_DICT[state])
+	if selected:
+		Events.selected_cell_changed.emit(self)
+	else:
+		for neighbor in neighbors:
+			neighbor.neighbor_updated()
+
+# Called when a neighboring cell state is changed
+# For rule highlighting
+func neighbor_updated() -> void:
+	if selected:
+		Events.selected_cell_changed.emit(self)
 
 # Change border on selected change
 func _set_selected(value: bool) -> void:
@@ -35,7 +44,7 @@ func _set_selected(value: bool) -> void:
 		Events.cell_selected.emit(self)
 	else:
 		selected_border.hide()
-		Events.cell_deselected.emit()
+		Events.cell_deselected.emit(self)
 
 # Change state on click
 func _on_panel_gui_input(event: InputEvent) -> void:
@@ -46,13 +55,15 @@ func _on_panel_gui_input(event: InputEvent) -> void:
 
 # Change state if click is held and moved in
 func _on_panel_mouse_entered() -> void:
-	if Input.is_action_pressed("Action_2"):
+	if Input.is_action_pressed("Action_1"):
 		state = Cell.get_next_cell_state(state)
 
 # Static func to iterate through states
 # if loop empty/true: ignore LENGTH and return to 1st state
 # if loop false: allow LENGTH
 static func get_next_cell_state(value: CellState, loop: bool = true) -> CellState:
+	if value == CellState.LENGTH:
+		return 0 as CellState
 	value = value + 1 as CellState
 	if loop and value == CellState.LENGTH:
 		value = 0 as CellState
